@@ -5,7 +5,6 @@
 \title{DSS_MarketValue}
 \usage{
 DSS_MarketValue(
-  dssClient,
   Portfolios,
   Evaldate,
   ComdatStart,

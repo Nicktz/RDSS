@@ -1,0 +1,10 @@
+﻿<configuration>
+  <system.runtime.remoting>
+    <application>
+      <client>
+        <wellknown type="SIM.ServerInterface.IShareServer, SIM.ServerInterface" url="tcp://srv001123:18085/ShareServer.rem" />
+        <wellknown type="SIM.ServerInterface.ITimeSeriesHandler, SIM.ServerInterface" url="tcp://srv001123:18085/TimeSeriesHandler.rem" />
+      </client>
+    </application>
+  </system.runtime.remoting>
+</configuration>

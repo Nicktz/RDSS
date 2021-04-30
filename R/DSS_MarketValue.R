@@ -28,7 +28,7 @@
 #' }
 #' @export
 
-DSS_MarketValue  <- function(Portfolios, Evaldate, ComdatStart, InstrumentType, IncludeCash, International , SeeThrough) {
+DSS_MarketValue  <- function(Portfolios, Evaldate = lubridate::today(), InstrumentType	= 0, IncludeCash	= 1, International	= 1, SeeThrough	= 1) {
 
   # Convert to base 1900 to work:
   dssClient <- DSS_Con()

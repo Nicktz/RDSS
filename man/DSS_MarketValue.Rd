@@ -6,12 +6,11 @@
 \usage{
 DSS_MarketValue(
   Portfolios,
-  Evaldate,
-  ComdatStart,
-  InstrumentType,
-  IncludeCash,
-  International,
-  SeeThrough
+  Evaldate = lubridate::today(),
+  InstrumentType = 0,
+  IncludeCash = 1,
+  International = 1,
+  SeeThrough = 1
 )
 }
 \arguments{

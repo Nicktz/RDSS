@@ -45,7 +45,7 @@ Constituent_TS  <- function(EquityCodes, StartDate, EndDate = lubridate::today()
 
   df_creator <- function(dssClient, EquityCodes, DataType, ComdatStart, ComdatEnd, Periodicity, SeeThrough, InstrumentType, AliasIndicator , IncludeCash, International, Orientation){
 
-    # EQ <- EquityCodes[[2]]
+    # EQ <- EquityCodes[[1]]
     EQ <- EquityCodes
 
     datatype_foo <- function(dssClient, EQ, DataType, ComdatStart, ComdatEnd, Periodicity, SeeThrough, InstrumentType, AliasIndicator , IncludeCash, International, Orientation){
@@ -80,9 +80,14 @@ Constituent_TS  <- function(EquityCodes, StartDate, EndDate = lubridate::today()
 
     result <-
       DataType %>% as.list() %>%
-      purrr::map(~datatype_foo(dssClient, EQ, ., ComdatStart, ComdatEnd, Periodicity, SeeThrough, InstrumentType, AliasIndicator , IncludeCash, International, Orientation)) %>%
-      reduce(left_join, c("date", "Tickers")) %>%
-      mutate(Index = EQ)
+      purrr::map(~datatype_foo(dssClient, EQ, ., ComdatStart, ComdatEnd, Periodicity, SeeThrough, InstrumentType, AliasIndicator , IncludeCash, International, Orientation))
+
+    if(result %>% flatten() %>% length() == 0 ) return(NULL)
+
+      result <-
+        result %>%
+        reduce(left_join, c("date", "Tickers")) %>%
+        mutate(Index = EQ)
 
   }
 
@@ -90,6 +95,8 @@ Constituent_TS  <- function(EquityCodes, StartDate, EndDate = lubridate::today()
     EquityCodes %>% as.list() %>%
     purrr::map(~df_creator(dssClient, ., DataType, ComdatStart, ComdatEnd, Periodicity, SeeThrough, InstrumentType, AliasIndicator , IncludeCash, International, Orientation))
 
+  Collated <-
+    Collated %>% reduce(bind_rows)
 
   if(nrow(Collated) == 0) Collated <- NULL
 

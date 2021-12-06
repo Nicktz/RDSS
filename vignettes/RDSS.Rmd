@@ -54,13 +54,15 @@ install.packages("RDCOMClient", repos="http://www.omegahat.net/R").
 
 ## Functions
 
-###  Grab a single point: __BDP__
+###  Grab a single point: __DSSData__
 
 #### DSS Call: DSSData
 
+
 ```{r, eval = F}
-BDP(Code = "R186", DataType = "YTM", EvaluationDate = lubridate::today()-1)
-BDP(Code = "SOL", DataType = "CLOSE", EvaluationDate = lubridate::today()-1)
+pacman::p_load(tidyverse, lubridate, RDSS)
+DSSData(Code = "R186", DataType = "YTM", EvaluationDate = lubridate::today()-1)
+DSSData(Code = "SOL", DataType = "CLOSE", EvaluationDate = lubridate::today()-1)
 ```
 
 

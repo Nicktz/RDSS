@@ -52,8 +52,9 @@ install.packages("RDCOMClient", repos="http://www.omegahat.net/R").
 #### DSS Call: DSSData
 
 ``` r
-BDP(Code = "R186", DataType = "YTM", EvaluationDate = lubridate::today()-1)
-BDP(Code = "SOL", DataType = "CLOSE", EvaluationDate = lubridate::today()-1)
+pacman::p_load(tidyverse, lubridate, RDSS)
+DSSData(Code = "R186", DataType = "YTM", EvaluationDate = lubridate::today()-1)
+DSSData(Code = "SOL", DataType = "CLOSE", EvaluationDate = lubridate::today()-1)
 ```
 
 ### TRI timeseries returns: **Returns**
@@ -118,34 +119,35 @@ df_TS %>% arrange(date)
 
 # MSCI constituent data: Use the DSSConstituentData function as opposed to the time-series function (doesn't square e.g. with DSSMSCIEMERG when using TS.):
 EquityCodes = c("DSSMSCIEMERG", "DSSMSCIWRLD")
-DataTypes <- c("MSCIInstrumentName","MSCIBBTicker","MSCIRICTicker","weight","MarketCap","mscisectorname","mscicountryname")
+DataTypes <- c("MSCIInstrumentName","MSCIBBTicker","MSCIRICTicker","weight", "close","MarketCap","mscisectorname","mscicountryname")
 StartDate = ymd(20200831);EndDate = ymd(20200930) 
 
 df_TS <- 
   EquityCodes %>% as.list() %>% 
-  map_df(~Constituent_matrix_TS(., DataTypes, StartDate, EndDate, IncludeCash = 1)) 
+  map_df(~Constituent_matrix_TS(., DataTypes, StartDate, EndDate, IncludeCash = 1, PeriodCode = "tm")) 
 
 df_TS %>% arrange(date)
+
+
+# Japan funds:
+EquityCodes = c("DSSMSCIJPA", "DSSMSCIEDMJ")
+df_TS <- 
+  EquityCodes %>% as.list() %>% 
+  map_df(~Constituent_matrix_TS(., DataTypes, StartDate, EndDate, IncludeCash = 1, PeriodCode = "tm")) 
 ```
 
 Time series
 
 ``` r
 # E.g. time series of PE of J200
-
+library(tidyverse)
  library(RDSS)
  EquityCodes = c("J400", "J203")
  DataType = c("close", "MStotalReturn", "ey")
  StartDate = lubridate::ymd(20200131)
  EndDate = lubridate::today()-1
  Periodicity = "tm"
- CurrencyCode = "ZAR"
- Orientation = "V"
- Interpolation = 1
- HideDates = 0
- Extrapolation = 0
  dff <- Time_series (EquityCodes, DataType, StartDate, Periodicity = Periodicity)
- 
  dff %>% group_by(Tickers) %>% mutate(PE = 1/ey)
 ```
 
@@ -163,4 +165,10 @@ PeriodCode = "td"
 
 External(Code, StartDate, EndDate, PeriodCode) %>% arrange(date) %>% 
   ggplot() + geom_line(aes(date, Value, color = Tickers)) + facet_wrap(~Tickers) + theme_bw()
+
+### Spot at specific point in time:
+
+MSCI_W <- "NDDUWI"
+dff <- Time_series(EquityCodes, DataType = "close", StartDate, Periodicity = Periodicity)
+ZAR <- unique(dff$date) %>% as.list() %>% map_df(~RDSS::Spots(SpotCodes = "$ZAR.USD", DataType = "DecalogSpot", EvaluationDate = .))
 ```

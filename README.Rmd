@@ -1,7 +1,4 @@
 ---
-output:
-  md_document:
-    variant: gfm
 ---
 
 
@@ -54,8 +51,9 @@ install.packages("RDCOMClient", repos="http://www.omegahat.net/R").
 #### DSS Call: DSSData
 
 ```{r, eval = F}
-BDP(Code = "R186", DataType = "YTM", EvaluationDate = lubridate::today()-1)
-BDP(Code = "SOL", DataType = "CLOSE", EvaluationDate = lubridate::today()-1)
+pacman::p_load(tidyverse, lubridate, RDSS)
+DSSData(Code = "R186", DataType = "YTM", EvaluationDate = lubridate::today()-1)
+DSSData(Code = "SOL", DataType = "CLOSE", EvaluationDate = lubridate::today()-1)
 ```
 
 
@@ -153,7 +151,7 @@ Time series
 ```{r, eval = F}
 
 # E.g. time series of PE of J200
-
+library(tidyverse)
  library(RDSS)
  EquityCodes = c("J400", "J203")
  DataType = c("close", "MStotalReturn", "ey")

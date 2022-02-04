@@ -24,8 +24,7 @@ First copy the files in the server_files folder in the RDSS folder, to the Rstud
 
 Next, run the following from cmd (admin): 
 
-        cd "c:\Program Files\SIM\DSSServerAPI\"
-        regasm64\RegAsm.exe SIM.ServerInterface.dll /codebase /tlb
+        c:\Windows\Microsoft.NET\Framework64\v4.0.30319\RegAsm.exe SIM.ServerInterface.dll /codebase /tlb
 
 Documentation for functions reside here: 
 

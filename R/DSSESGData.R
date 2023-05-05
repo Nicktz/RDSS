@@ -18,7 +18,7 @@
 #' }
 #' @export
 
-DSSESGData  <- function(EquityCodes, DataTypes, Date, Provider = "SUST"){
+DSSESGData  <- function(EquityCodes, DataTypes, Date, Provider = "MSCI"){
 
   # Convert to base 1900 to work:
   dssClient <- DSS_Con()

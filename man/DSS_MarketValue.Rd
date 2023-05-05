@@ -10,7 +10,7 @@ DSS_MarketValue(
   InstrumentType = 0,
   IncludeCash = 1,
   International = 1,
-  SeeThrough = 1
+  SeeThrough = 0
 )
 }
 \arguments{
@@ -24,7 +24,7 @@ DSS_MarketValue(
 
 \item{International}{0 exclude int, 1 include, 2 only int, 3 SA, Nam, Swazi}
 
-\item{SeeThrough}{Set to 1 by default}
+\item{SeeThrough}{Set to 0 by default}
 
 \item{AliasIndicator}{Set to 0 (false) by default.}
 }

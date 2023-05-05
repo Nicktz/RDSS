@@ -1,6 +1,6 @@
 Package: RDSS
-Version: 1.0.1
-Date: 2020-07-21
+Version: 1.1.1
+Date: 2022-08-16
 Type: Package
 Title: API for accessing DSS through R
 Authors@R: person("Nico", "Katzke", role = c("aut", "cre"), email = "nfkatzke@gmail.com")
@@ -15,7 +15,7 @@ Imports:
     RDCOMClient
 License: GPL-3
 LazyData: TRUE
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
 Suggests:
     knitr,
     rmarkdown,

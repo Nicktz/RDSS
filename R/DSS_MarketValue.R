@@ -9,7 +9,7 @@
 #' @param AliasIndicator Set to 0 (false) by default.
 #' @param IncludeCash Set to 0 (false) by default.
 #' @param International 0 exclude int, 1 include, 2 only int, 3 SA, Nam, Swazi
-#' @param SeeThrough Set to 1 by default
+#' @param SeeThrough Set to 0 by default
 #' @import RDCOMClient
 #' @import lubridate
 #' @import dplyr
@@ -28,7 +28,7 @@
 #' }
 #' @export
 
-DSS_MarketValue  <- function(Portfolios, Evaldate = lubridate::today(), InstrumentType	= 0, IncludeCash	= 1, International	= 1, SeeThrough	= 1) {
+DSS_MarketValue  <- function(Portfolios, Evaldate = lubridate::today(), InstrumentType	= 0, IncludeCash	= 1, International	= 1, SeeThrough	= 0) {
 
   # Convert to base 1900 to work:
   dssClient <- DSS_Con()

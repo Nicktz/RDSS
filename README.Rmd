@@ -1,45 +1,31 @@
 ---
----
 
 
 ## Purpose
 
 Connect to DSS databases for Sanlam employees.
 
-> Big thanks to the mvp Francois Botha who assisted with API connections and understanding the dark art of working with the DSS api...
+> Big thanks to Francois Botha for assistance with API connections and insights into working with the DSS api.
 
-Still a work in Progress.
+> Big thanks to Graeme Silke for the support and assistance in understanding the DSS api.
+
+This will remain a work in progress as DSS itself develops.
 
 ## Steps:
 
-First copy the files in the server_files folder in the RDSS folder, to the Rstudio directory as follows: 
-
-* In R, run: 
-
-> system.file('server_files', package = 'RDSS')
-
-* Copy these files to wherever your Rstudio is installed, e.g.:
-
-> "C:/Program Files/RStudio/bin"
-
-Next, run the following from cmd (admin): 
-
-        c:\Windows\Microsoft.NET\Framework64\v4.0.30319\RegAsm.exe SIM.ServerInterface.dll /codebase /tlb
-
-Documentation for functions reside here: 
-
-> system.file('bin', package = 'RDSS')
-
-Now also install __pacman__:
+> You need to have RDCOMClient installed"
 
 ```{r, eval = F}
 if(!require("pacman")) install.packages("pacman")
+pacman::p_install(remotes)
 ```
 
-You might also need to install RDCOmclient from the source to make it work (as I discussed [here](https://stackoverflow.com/a/51132513/4198868)):
+Next install RDCOmclient from my forked github version (ask me if this does not work please) - which corrects some offending elements of the updated package:
 
 ```{r, eval = FALSE}
-install.packages("RDCOMClient", repos="http://www.omegahat.net/R").
+
+remotes::install_github("Nicktz/RDCOMClient", ref = "main")
+
 ```
 
 

@@ -4,7 +4,7 @@
 \alias{DSSESGData}
 \title{DSSESGData}
 \usage{
-DSSESGData(EquityCodes, DataTypes, Date, Provider = "SUST")
+DSSESGData(EquityCodes, DataTypes, Date, Provider = "MSCI")
 }
 \arguments{
 \item{EquityCodes}{The Securitycodes for the Instruments, Indexes, portfolios, etc. to provide data for. Only one index input}

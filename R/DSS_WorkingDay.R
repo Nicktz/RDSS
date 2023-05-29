@@ -9,7 +9,7 @@
 #' \dontrun{
 #' library(RDSS)
 #' DSS_Con()
-#' DSS_WorkingDay(Code = c("NPN", "CPI"), DataType = c("name", "decalogaatype"), EvaluationDate = lubridate::today()-1)
+#' DSS_WorkingDay(EvaluationDate = lubridate::today()-1)
 #'
 #' }
 #' @export

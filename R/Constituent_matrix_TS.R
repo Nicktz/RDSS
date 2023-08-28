@@ -30,8 +30,9 @@
 #' }
 #' @export
 
-Constituent_matrix_TS  <- function(EquityCodes, DataTypes, StartDate, EndDate = lubridate::today(), PeriodCode = "m", SeeThrough = 0, InstrumentType = 0, AliasIndicator = 0, IncludeCash = 0,
-                                International = 1, Exclusions = "", Interpolation = 1, Extrapolation = 1){
+Constituent_matrix_TS  <- function(EquityCodes, DataTypes = "weight", StartDate = lubridate::today()-1, EndDate = lubridate::today()-1, PeriodCode = "d",
+                                   SeeThrough = 0, InstrumentType = 0, AliasIndicator = 0, IncludeCash = 0,
+                                   International = 1, Exclusions = "", Interpolation = 1, Extrapolation = 1){
 
   # Convert to base 1900 to work:
   dssClient <- DSS_Con()

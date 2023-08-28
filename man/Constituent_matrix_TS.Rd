@@ -6,10 +6,10 @@
 \usage{
 Constituent_matrix_TS(
   EquityCodes,
-  DataTypes,
-  StartDate,
-  EndDate = lubridate::today(),
-  PeriodCode = "m",
+  DataTypes = "weight",
+  StartDate = lubridate::today() - 1,
+  EndDate = lubridate::today() - 1,
+  PeriodCode = "d",
   SeeThrough = 0,
   InstrumentType = 0,
   AliasIndicator = 0,

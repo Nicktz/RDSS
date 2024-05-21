@@ -5,11 +5,9 @@
 
 Connect to DSS databases for Sanlam employees.
 
-> Big thanks to Francois Botha for assistance with API connections and insights into working with the DSS api.
+> This package allows connnections to DSS through R. 
 
-> Big thanks to Graeme Silke for the support and assistance in understanding the DSS api.
-
-This will remain a work in progress as DSS itself develops.
+> This will remain a work in progress as DSS itself develops - for assistance, contact me directly at nicok@satrix.co.za
 
 ## Steps:
 

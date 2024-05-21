@@ -15,7 +15,7 @@ DSS_Con <- function(){
 
   if(!is.null(dssClient$error)){
   if( !any(grepl("Rscript.exe", list.files(paste0( "C:/Program Files/R/R", "-", R.version$major, ".", R.version$minor, "/bin/x64/")))) ) stop(paste0( "Seems like you need to add the Rscript.exe files into the Rstudio bin folder. Please check and add here: ", paste0( "C:/Program Files/R/R", "-", R.version$major, ".", R.version$minor, "/bin/x64/")))
-  if( !any(grepl( "rsession.exe", list.files("C:/Program Files/RStudio/bin/") ))) stop("Seems like you need to add the rsession.exe files into the Rstudio bin folder. Please check. Please check and add here: C:/Program Files/RStudio/bin")
+  if( !any(grepl( "rsession.exe", list.files("C:/Program Files/RStudio/resources/app/bin") ))) stop("Seems like you need to add the rsession.exe files into the Rstudio bin folder. Please check. Please check and add here: C:/Program Files/RStudio/resources/app/bin")
   stop("RDComclient connection issue.")
   }
 

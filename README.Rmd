@@ -69,7 +69,7 @@ dfweekly_PX <- Returns(EquityCodes = Tickers, StartDate = today() %m-% months(24
 pacman::p_load(tidyverse, lubridate, RDSS)
 EquityCodes <- "J300"
 DataType <- c("weight", "close", "totalreturn", "PE") # PE not valid call here - show that it won't break function
-StartDate = lubridate::ymd(20200101)
+StartDate = lubridate::ymd(20240101)
 EndDate = lubridate::today()
 Periodicity	= "m"
 Ex_df <- Constituent_TS(EquityCodes, StartDate, EndDate, DataType, Periodicity = "tm")

@@ -57,7 +57,7 @@ This function fetches the time series for a given index's values over time.
 \dontrun{
 EquityCodes = "J200"
 DataTypes = c("Weight", "Volume", "MarketCap")
-StartDate = ymd(20200130);EndDate = ymd(20200930);
+StartDate = ymd(20200130);EndDate = ymd(20200331);
 PeriodCode = "m"; SeeThrough = 0; InstrumentType = 1; AliasIndicator = 0; IncludeCash = 0;
 International = 1; Exclusions = ""; Interpolation = 1; Extrapolation = 1
 Constituent_matrix_TS(EquityCodes, DataTypes, StartDate, EndDate)

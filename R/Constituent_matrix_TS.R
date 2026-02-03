@@ -23,7 +23,7 @@
 #' \dontrun{
 #' EquityCodes = "J200"
 #' DataTypes = c("Weight", "Volume", "MarketCap")
-#'StartDate = ymd(20200130);EndDate = ymd(20200930);
+#' StartDate = ymd(20200130);EndDate = ymd(20200331);
 #' PeriodCode = "m"; SeeThrough = 0; InstrumentType = 1; AliasIndicator = 0; IncludeCash = 0;
 #' International = 1; Exclusions = ""; Interpolation = 1; Extrapolation = 1
 #' Constituent_matrix_TS(EquityCodes, DataTypes, StartDate, EndDate)
@@ -35,7 +35,7 @@ Constituent_matrix_TS  <- function(EquityCodes, DataTypes = "weight", StartDate 
                                    International = 1, Exclusions = "", Interpolation = 1, Extrapolation = 1){
 
   # Convert to base 1900 to work:
-  dssClient <- DSS_Con()
+  dssClient <- RDSS::DSS_Con()
   ComdatStart <- new("COMDate", as.numeric(StartDate - lubridate::ymd(18991230)))
   ComdatEnd <- new("COMDate", as.numeric(EndDate - lubridate::ymd(18991230)))
 

@@ -89,10 +89,10 @@ rm(list=ls())
 # Index fetch:
 EquityCodes = "J200"
 DataTypes = c("Weight", "Volume", "MarketCap", "EPS", "DY")
-StartDate = ymd(20200130);EndDate = ymd(20200930) 
+StartDate = ymd(20200130);EndDate = ymd(20200331) 
 # SeeThrough = 0; InstrumentType = 1; AliasIndicator = 0; IncludeCash = 0;
 # International = 1; Exclusions = ""; Interpolation = 1; Extrapolation = 1
-df_TS <- Constituent_matrix_TS(EquityCodes, DataTypes, StartDate, EndDate)
+df_TS <- Constituent_matrix_TS(EquityCodes, DataTypes, StartDate, EndDate, PeriodCode = "m")
 
 # Funds fetch
 EquityCodes = c("STRUST", "SVOORS")

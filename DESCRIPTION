@@ -15,10 +15,11 @@ Imports:
     RDCOMClient
 License: GPL-3
 LazyData: TRUE
-RoxygenNote: 7.3.2
 Suggests:
     knitr,
     dplyr,
+    purrr,
+    tidyr,
     rmarkdown,
     ggplot2,
     PerformanceAnalytics
@@ -26,3 +27,4 @@ Repository: CRAN
 NeedsCompilation: yes
 ByteCompile: yes
 VignetteBuilder: knitr
+Config/roxygen2/version: 8.1.1
